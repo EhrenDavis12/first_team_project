@@ -1,1 +1,20 @@
 /* background  */
+.searchButton{
+    padding-top: 35px;
+    width: 700px;
+    padding-left: 400px;
+}
+.textBox{
+    padding-top: 5px;
+    width: 900px;
+    padding-left: 200px;
+}
+/* .jum{
+    padding-top: 50px;
+    text-align: center;
+} */
+.jumbotron{
+    background-color: white;
+    padding-top: 50px;
+    text-align: center;
+}
