@@ -1,0 +1,20 @@
+/* background  */
+#searchBtn{
+    width: 150px;
+    margin-top: 1em;
+}
+.textBox{
+    padding-top: 5px;
+    width: 900px;
+    padding-left: 200px;
+}
+/* .jum{
+    padding-top: 50px;
+    text-align: center;
+} */
+.jumbotron{
+/*     background-color: white; */
+/*     padding-top: 50px; */
+    text-align: center;
+
+}
