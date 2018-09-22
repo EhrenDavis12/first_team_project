@@ -1,8 +1,7 @@
 /* background  */
-.searchButton{
-    padding-top: 35px;
-    width: 700px;
-    padding-left: 400px;
+#searchBtn{
+    width: 150px;
+    margin-top: 1em;
 }
 .textBox{
     padding-top: 5px;
@@ -14,7 +13,8 @@
     text-align: center;
 } */
 .jumbotron{
-    background-color: white;
-    padding-top: 50px;
+/*     background-color: white; */
+/*     padding-top: 50px; */
     text-align: center;
+
 }
