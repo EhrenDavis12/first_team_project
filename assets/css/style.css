@@ -16,5 +16,20 @@
 /*     background-color: white; */
 /*     padding-top: 50px; */
     text-align: center;
+    background-color: white
 
+
+}
+#header{
+    font-family: 'Audiowide', cursive;
+}
+#navLogo{
+    font-family: 'Audiowide', cursive;
+}
+#dropDown{
+    color: white
+
+}
+#favorite{
+    float: right
 }
