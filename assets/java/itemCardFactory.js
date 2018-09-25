@@ -26,7 +26,7 @@ function getAttrFromBuiltCard(id) {
 function buildJsonForCard(key, jsonItem) {
     let jsonCard = [
         {
-            div: "<div id=\"card" + key + "\" class=\"card m-5\" style=\"width: 22rem;\">",
+            div: "<div id=\"card" + key + "\" class=\"card m-5\" style=\"width: 22rem;\" data-aos=\"fade-up\">",
             attrs: {
                 "data-img": jsonItem.picture,
                 "data-url": jsonItem.url,

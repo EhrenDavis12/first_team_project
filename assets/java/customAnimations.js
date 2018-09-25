@@ -1,17 +1,15 @@
 var boxShadow = anime({
     targets: '.box-shadow',
     boxShadow: [
-      {value: ['10px -10px 10px 0 currentColor', '10px 10px 20px 0 currentColor']},
-      {value: '-10px 10px 30px 0 currentColor'},
-      {value: '-10px -10px 20px 0 currentColor'},
-      {value: '10px -10px 10px 0 currentColor'},
-      {value: '0px 0px 0px 0 currentColor'}
+      {value: ['10px -10px 10px 0 #C0C0C0', '10px 10px 20px 0 #C0C0C0']},
+      {value: '-10px 10px 30px 0 #C0C0C0'},
+      {value: '-10px -10px 20px 0 #C0C0C0'},
+      {value: '10px -10px 10px 0 #C0C0C0'},
+      {value: '0px 0px 0px 0 #C0C0C0'}
     ],
     loop: false,
     easing: 'linear'
   });
-
-
   
  /*  $(window).scroll(function() {
     if ($(document).scrollTop() > 50) {
@@ -20,8 +18,6 @@ var boxShadow = anime({
       $('nav').removeClass('shrink');
     }
   }); */
-
-
 
 
 // You can also pass an optional settings object
@@ -35,9 +31,9 @@ AOS.init({
     useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
   
     // Settings that can be overriden on per-element basis, by `data-aos-*` attributes:
-    offset: 120, // offset (in px) from the original trigger point
+    offset: 50, // offset (in px) from the original trigger point
     delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 400, // values from 0 to 3000, with step 50ms
+    duration: 2000, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
     once: false, // whether animation should happen only once - while scrolling down
     mirror: false, // whether elements should animate out while scrolling past them

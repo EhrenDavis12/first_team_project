@@ -2,6 +2,7 @@
 function main() {
     baseDB.initFireBase();
     AOS.init();
+    AOS.refresh();
 
     let pastResults = sessionStorage.getItem("pastResults");
     if (pastResults !== null){
