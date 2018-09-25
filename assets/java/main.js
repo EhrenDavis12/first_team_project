@@ -1,6 +1,7 @@
 
 function main() {
-    //baseDB.initFireBase();
+    baseDB.initFireBase();
+    AOS.init();
 
     let pastResults = sessionStorage.getItem("pastResults");
     if (pastResults !== null){
@@ -28,4 +29,13 @@ function validateInput(input) {
         return false
     }
     return true;
+}
+
+function addToFavorites(id){
+    let cardInfo = getAttrFromBuiltCard(id);
+    baseDB.pushData("fav", cardInfo);
+}
+
+function buildFavorites(){
+    baseDB.getAllChildren("fav", organizeApiResults);
 }

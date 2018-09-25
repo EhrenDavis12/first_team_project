@@ -12,10 +12,29 @@ function buildCard(key, jsonItems) {
     htmlFactory.createByArrayOfJson($("#cardItemsHere"), jsonCard);
 }
 
+function getAttrFromBuiltCard(id) {
+    return {
+        picture: $("#" + id).attr("data-img"),
+        url: $("#" + id).attr("data-url"),
+        name: $("#" + id).attr("data-name"),
+        price: $("#" + id).attr("data-price"),
+        description: $("#" + id).attr("data-description"),
+        rating: $("#" + id).attr("data-rating")
+    };
+}
+
 function buildJsonForCard(key, jsonItem) {
     let jsonCard = [
         {
-            div: "<div class=\"card m-5\" style=\"width: 22rem;\">",
+            div: "<div id=\"card" + key + "\" class=\"card m-5\" style=\"width: 22rem;\">",
+            attrs: {
+                "data-img": jsonItem.picture,
+                "data-url": jsonItem.url,
+                "data-name": jsonItem.name,
+                "data-price": jsonItem.price,
+                "data-description": jsonItem.description,
+                "data-rating": jsonItem.rating
+            },
             children: [
                 {
                     div: "<div class=\"view overlay hm-white-slight\">",
@@ -26,7 +45,7 @@ function buildJsonForCard(key, jsonItem) {
                                 src: jsonItem.picture
                             }
                         }, {
-                            div: "<a>",
+                            div: "<a class=\"itemUrl\">",
                             attrs: {
                                 href: jsonItem.url
                             },
@@ -61,7 +80,7 @@ function buildJsonForCard(key, jsonItem) {
                                     div: "<div class=\"col-md-6\">",
                                     children: [
                                         {
-                                            div: "<a class=\"btn btn-primary\" data-toggle=\"collapse\" href=\"#collapseExample"+key+"\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapseExample"+key+"\">",
+                                            div: "<a class=\"btn btn-primary\" data-toggle=\"collapse\" href=\"#collapseExample" + key + "\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapseExample" + key + "\">",
                                             children: [
                                                 {
                                                     div: "<i class=\"fas fa-chevron-circle-down\">"
@@ -71,7 +90,7 @@ function buildJsonForCard(key, jsonItem) {
                                     ]
                                 },
                                 {
-                                    div: "<div class=\"btn-group-toggle col-md-6\" data-toggle=\"buttons\">",
+                                    div: "<div class=\"btn-group-toggle col-md-6 favorite\" data-toggle=\"buttons\" data-parent=\"card" + key + "\">",
                                     children: [
                                         {
                                             div: "<label class=\"btn btn-secondary active\">",
@@ -87,7 +106,7 @@ function buildJsonForCard(key, jsonItem) {
                                 }
                             ]
                         }, {
-                            div: "<div class=\"collapse\" id=\"collapseExample"+key+"\">",
+                            div: "<div class=\"collapse\" id=\"collapseExample" + key + "\">",
                             children: [
                                 {
                                     div: "<div class=\"card card-body\">",
@@ -108,3 +127,4 @@ function buildJsonForCard(key, jsonItem) {
 
     return jsonCard;
 }
+
