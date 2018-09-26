@@ -1,15 +1,16 @@
 function getItemsFromWalmart(searchItem, callBackFunction) {
-    var quaryURL = "https://cors-anywhere.herokuapp.com/";
+    var queryURL = "https://cors-anywhere.herokuapp.com/";
 
-    quaryURL += "https://api.walmartlabs.com/v1/search?apiKey=g8wph7bvuk3chfrkxzncywu4&query=" + searchItem;
+    queryURL += "https://api.walmartlabs.com/v1/search?apiKey=g8wph7bvuk3chfrkxzncywu4&query=" + searchItem;
 
     $.ajax({
-        url: quaryURL,
+        url: queryURL,
         method: "GET"
     })
         .then(function (response) {
             console.log(response.items);
-            var returnArray = getDataFromItems(response.items); callBackFunction(returnArray);
+            var returnArray = getDataFromItems(response.items); 
+            callBackFunction(returnArray);
         });
 }
 
@@ -25,7 +26,7 @@ function getDataFromItem(item) {
     var returnJson = {
         name: item.name,
         price: item.salePrice,
-        discription: item.shortDescription,
+        description: item.shortDescription,
         url: item.productUrl,
         picture: item.mediumImage,
         rating: item.customerRating
