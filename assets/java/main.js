@@ -4,7 +4,7 @@ function main() {
     AOS.init();
     AOS.refresh();
 
-    let pastResults = sessionStorage.getItem("pastResults");
+    let pastResults = sessionStorage.getItem("pastResultsWal");
     if (pastResults !== null){
         buildCards(JSON.parse(pastResults));
     }
@@ -13,15 +13,22 @@ function main() {
 
 function search() {
     console.debug(arguments.callee.name);
+    sessionStorage.clear();
     var searchItem = $("#inputBox").val().trim();
     if (validateInput) {
-        getItemsFromWalmart(searchItem, organizeApiResults);
+        $("#cardItemsHere").empty();
+        getItemsFromWalmart(searchItem, organizeApiResultsWag);
+        getItemsFromEbay(searchItem, organizeApiResultsEbay);
     }
 }
 
-function organizeApiResults(arrayOfJsonItems){
-    sessionStorage.clear();
-    sessionStorage.setItem("pastResults", JSON.stringify(arrayOfJsonItems));
+function organizeApiResultsWag(arrayOfJsonItems){
+    sessionStorage.setItem("pastResultsWal", JSON.stringify(arrayOfJsonItems));
+    buildCards(arrayOfJsonItems);
+}
+
+function organizeApiResultsEbay(arrayOfJsonItems){
+    sessionStorage.setItem("pastResultsEbay", JSON.stringify(arrayOfJsonItems));
     buildCards(arrayOfJsonItems);
 }
 
