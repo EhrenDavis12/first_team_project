@@ -15,6 +15,7 @@ function search() {
     console.debug(arguments.callee.name);
     var searchItem = $("#inputBox").val().trim();
     if (validateInput) {
+        $("#searchBtn").attr("disabled", true);
         getItemsFromWalmart(searchItem, organizeApiResults);
     }
 }
@@ -23,6 +24,7 @@ function organizeApiResults(arrayOfJsonItems){
     sessionStorage.clear();
     sessionStorage.setItem("pastResults", JSON.stringify(arrayOfJsonItems));
     buildCards(arrayOfJsonItems);
+    $("#searchBtn").attr("disabled", false);
 }
 
 function validateInput(input) {
@@ -35,8 +37,10 @@ function validateInput(input) {
 function addToFavorites(id){
     let cardInfo = getAttrFromBuiltCard(id);
     baseDB.pushData("fav", cardInfo);
+    $(".favorite").attr("disabled", true);
 }
 
 function buildFavorites(){
     baseDB.getAllChildren("fav", organizeApiResults);
+    $(".favorite").attr("disabled", true);
 }
