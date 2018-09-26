@@ -1,7 +1,7 @@
 
 function buildCards(arrayOfJsonItems) {
     console.debug(arguments.callee.name);
-    $("#cardItemsHere").empty();
+
     $.each(arrayOfJsonItems, function (key, value) {
         buildCard(key, value);
     });

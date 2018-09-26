@@ -1,5 +1,6 @@
 function getItemsFromWalmart(searchItem, callBackFunction) {
-    var queryURL = "https://cors-anywhere.herokuapp.com/";
+    //var queryURL = "https://cors-anywhere.herokuapp.com/";
+    var queryURL = "https://stark-springs-25719.herokuapp.com/";
 
     queryURL += "https://api.walmartlabs.com/v1/search?apiKey=g8wph7bvuk3chfrkxzncywu4&query=" + searchItem;
 
@@ -8,21 +9,22 @@ function getItemsFromWalmart(searchItem, callBackFunction) {
         method: "GET"
     })
         .then(function (response) {
+            console.debug(arguments.callee.name);
             console.log(response.items);
-            var returnArray = getDataFromItems(response.items); 
+            var returnArray = getDataFromItemsWal(response.items);
             callBackFunction(returnArray);
         });
 }
 
-function getDataFromItems(response) {
+function getDataFromItemsWal(response) {
     var items = [];
     response.forEach(item => {
-        items.push(getDataFromItem(item));
+        items.push(getDataFromItemWal(item));
     });
     return items;
 }
 
-function getDataFromItem(item) {
+function getDataFromItemWal(item) {
     var returnJson = {
         name: item.name,
         price: item.salePrice,
