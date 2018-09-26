@@ -15,7 +15,9 @@ function search() {
     console.debug(arguments.callee.name);
     var searchItem = $("#inputBox").val().trim();
     if (validateInput) {
-        getItemsFromWalmart(searchItem, organizeApiResults);
+        // getItemsFromWalmart(searchItem, organizeApiResults);
+        getItemsFromEbay(searchItem, organizeApiResults);
+
     }
 }
 
