@@ -16,6 +16,7 @@ function search() {
     sessionStorage.clear();
     var searchItem = $("#inputBox").val().trim();
     if (validateInput) {
+        $("#searchBtn").attr("disabled", true);
         $("#cardItemsHere").empty();
         getItemsFromWalmart(searchItem, organizeApiResultsWag);
         getItemsFromEbay(searchItem, organizeApiResultsEbay);
@@ -30,6 +31,7 @@ function organizeApiResultsWag(arrayOfJsonItems){
 function organizeApiResultsEbay(arrayOfJsonItems){
     sessionStorage.setItem("pastResultsEbay", JSON.stringify(arrayOfJsonItems));
     buildCards(arrayOfJsonItems);
+    $("#searchBtn").attr("disabled", false);
 }
 
 function validateInput(input) {
@@ -42,8 +44,10 @@ function validateInput(input) {
 function addToFavorites(id){
     let cardInfo = getAttrFromBuiltCard(id);
     baseDB.pushData("fav", cardInfo);
+    $(".favorite").attr("disabled", true);
 }
 
 function buildFavorites(){
     baseDB.getAllChildren("fav", organizeApiResults);
+    $(".favorite").attr("disabled", true);
 }
