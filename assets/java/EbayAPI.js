@@ -34,7 +34,7 @@ function getDataFromItemEbay(item) {
         description: item.title[0],
         url: item.viewItemURL[0],
         picture: item.galleryURL[0],
-        // rating: item.customerRating
+        rating: "NA"
     };
     return returnJson;
 }

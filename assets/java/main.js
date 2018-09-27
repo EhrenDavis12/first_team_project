@@ -48,6 +48,7 @@ function addToFavorites(id){
 }
 
 function buildFavorites(){
-    baseDB.getAllChildren("fav", organizeApiResults);
+    $("#cardItemsHere").empty();
+    baseDB.getAllChildren("fav", buildCards);
     $(".favorite").attr("disabled", true);
 }
