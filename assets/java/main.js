@@ -8,7 +8,12 @@ function main() {
     if (pastResults !== null){
         buildCards(JSON.parse(pastResults));
     }
-
+}
+function setStateHome(){
+    $("#inputBox").val("");
+    $("#searchBtn").attr("disabled", false);
+    sessionStorage.clear();
+    $("#cardItemsHere").empty();
 }
 
 function search() {
