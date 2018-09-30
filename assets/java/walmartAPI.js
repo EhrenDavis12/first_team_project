@@ -10,7 +10,7 @@ function getItemsFromWalmart(searchItem, callBackFunction) {
     })
         .then(function (response) {
             console.debug(arguments.callee.name);
-            console.log(response.items);
+            console.debug(response.items);
             var returnArray = getDataFromItemsWal(response.items);
             callBackFunction(returnArray);
         });

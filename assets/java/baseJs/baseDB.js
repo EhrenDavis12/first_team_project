@@ -33,7 +33,7 @@ var baseDB = {
                 func(snapshot.val(), snapshot.ref.key);
             }
         }, function (errorObject) {
-            console.log("The read failed: " + errorObject.code);
+            console.debug("The read failed: " + errorObject.code);
         })
     },
 
@@ -45,7 +45,7 @@ var baseDB = {
                 func(snapshot.val(), snapshot.ref.key);
             }
         }, function (errorObject) {
-            console.log("The read failed: " + errorObject.code);
+            console.debug("The read failed: " + errorObject.code);
         })
     },
 
@@ -57,7 +57,7 @@ var baseDB = {
                 func(snapshot.val());
             }
         }, function (errorObject) {
-            console.log("The read failed: " + errorObject.code);
+            console.debug("The read failed: " + errorObject.code);
         })
     },
 

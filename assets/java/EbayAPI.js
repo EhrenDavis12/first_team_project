@@ -11,7 +11,7 @@ function getItemsFromEbay(searchItem, callBackFunction) {
     })
         .then(function (response) {
             console.debug(arguments.callee.name);
-            console.log(JSON.parse(response));
+            console.debug(JSON.parse(response));
             let jsonResponse = JSON.parse(response);
             let items = jsonResponse.findItemsByKeywordsResponse[0].searchResult[0].item;
             var returnArray = getDataFromItemsEbay(items); 
